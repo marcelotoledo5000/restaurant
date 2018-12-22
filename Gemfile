@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.3'
 
+# gem 'bootstrap', '~> 4.0.0'
+# gem 'devise', '~> 4.4', '>= 4.4.3'
+# gem 'friendly_id', '~> 5.2', '>= 5.2.3'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.2'
@@ -29,11 +32,11 @@ gem 'turbolinks', '~> 5'
 gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
-  gem 'database_cleaner'
+  gem 'capybara', '~> 3.12'
+  gem 'database_cleaner', '~> 1.7'
   gem 'factory_bot_rails', '~> 4.11', '>= 4.11.1'
   gem 'faker', '~> 1.9', '>= 1.9.1'
   gem 'pry-byebug', '~> 3.6'
-  gem 'rails-controller-testing'
   gem 'rspec-rails', '~> 3.8', '>= 3.8.1'
   gem 'rubocop'
   gem 'rubycritic', require: false
