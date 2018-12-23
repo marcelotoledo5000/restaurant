@@ -7,8 +7,24 @@ class RestaurantesController < ApplicationController
       redirect_to restaurantes_path
     else
       flash[:error] = 'Something went wrong'.freeze
-      render 'new'
+      render :new
     end
+  end
+
+  def destroy
+    @restaurante = Restaurante.find_by(id: params[:id])
+
+    if @restaurante.destroy
+      flash[:success] = 'Restaurant was successfully deleted.'.freeze
+    else
+      flash[:error] = 'Something went wrong'.freeze
+    end
+
+    redirect_to restaurantes_path
+  end
+
+  def edit
+    @restaurante = Restaurante.find_by(id: params[:id])
   end
 
   def index
@@ -17,6 +33,18 @@ class RestaurantesController < ApplicationController
 
   def new
     @restaurante = Restaurante.new
+  end
+
+  def update
+    @restaurante = Restaurante.find_by(id: params[:id])
+
+    if @restaurante.update(create_params)
+      flash[:success] = 'Restaurant was successfully updated'.freeze
+      redirect_to restaurantes_path
+    else
+      flash[:error] = 'Something went wrong'.freeze
+      render :edit
+    end
   end
 
   private

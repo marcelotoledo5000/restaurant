@@ -1,6 +1,6 @@
 env:
   global:
-    - CC_TEST_REPORTER_ID=6c95395029a6f498237ec1223764d5b5af87c6033e34cfe5cf9619344a86c0bb
+    - CC_TEST_REPORTER_ID=49909b90c2a279ad8f4c60ed6202700ed7994ced356551593a657bcd998effcd
 
 services:
   - postgresql
