@@ -12,13 +12,7 @@ class RestaurantesController < ApplicationController
   end
 
   def destroy
-    @restaurante = Restaurante.find_by(id: params[:id])
-
-    if @restaurante.destroy
-      flash[:success] = 'Restaurant was successfully deleted.'.freeze
-    else
-      flash[:error] = 'Something went wrong'.freeze
-    end
+    Restaurante.find_by(id: params[:id]).destroy
 
     redirect_to restaurantes_path
   end
