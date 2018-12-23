@@ -1,5 +1,5 @@
 FactoryBot.define do
   factory :restaurante do
-    name { Faker::LordOfTheRings.location }
+    name { Faker::LordOfTheRings.unique.location }
   end
 end
