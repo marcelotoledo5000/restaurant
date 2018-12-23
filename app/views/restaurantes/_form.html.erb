@@ -1,0 +1,9 @@
+<%= render partial: 'shared/model_errors', locals: { model: @restaurante } %>
+
+<%= form_for @restaurante do |f| %>
+  <div class=''>
+    <%= f.label :name, 'Nome do Restaurante' %>
+    <%= f.text_field :name %><br>
+  </div>
+  <p><%= link_to 'Cancelar', restaurantes_path %><%= f.submit label_button %></p>
+<% end %>
