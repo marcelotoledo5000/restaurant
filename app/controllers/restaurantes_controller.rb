@@ -6,7 +6,6 @@ class RestaurantesController < ApplicationController
       flash[:success] = 'Restaurant successfully created'.freeze
       redirect_to restaurantes_path
     else
-      flash[:error] = 'Something went wrong'.freeze
       render :new
     end
   end
