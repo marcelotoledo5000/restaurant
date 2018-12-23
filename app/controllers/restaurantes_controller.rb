@@ -6,19 +6,12 @@ class RestaurantesController < ApplicationController
       flash[:success] = 'Restaurant successfully created'.freeze
       redirect_to restaurantes_path
     else
-      flash[:error] = 'Something went wrong'.freeze
       render :new
     end
   end
 
   def destroy
-    @restaurante = Restaurante.find_by(id: params[:id])
-
-    if @restaurante.destroy
-      flash[:success] = 'Restaurant was successfully deleted.'.freeze
-    else
-      flash[:error] = 'Something went wrong'.freeze
-    end
+    Restaurante.find_by(id: params[:id]).destroy
 
     redirect_to restaurantes_path
   end
@@ -42,7 +35,6 @@ class RestaurantesController < ApplicationController
       flash[:success] = 'Restaurant was successfully updated'.freeze
       redirect_to restaurantes_path
     else
-      flash[:error] = 'Something went wrong'.freeze
       render :edit
     end
   end

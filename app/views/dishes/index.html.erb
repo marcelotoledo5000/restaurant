@@ -1,0 +1,24 @@
+<div>
+  <h1>Pratos</h1>
+</div>
+
+<%= link_to 'Cadastrar novo Prato', new_dish_path %>
+<br>
+<table>
+  <tr>
+    <th>delete</th>
+    <th>edit</th>
+    <th>Restaurante</th>
+    <th>Prato</th>
+    <th>Preço</th>
+  </tr>
+  <% @dishes.each do |dish| %>
+    <tr>
+      <th><%= link_to 'Excluir', dish_path(dish.id), method: :delete %></th>
+      <th><%= link_to 'Editar', edit_dish_path(dish.id) %></th>
+      <th><%= dish.restaurante.name %></th>
+      <th><%= dish.name %></th>
+      <th><%= dish.price %></th>
+    </tr>
+  <% end %>
+</table>
