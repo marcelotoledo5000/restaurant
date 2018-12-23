@@ -1,0 +1,23 @@
+<div>
+  <h1>Restaurantes</h1>
+</div>
+
+<p>Pesquisar</p>
+<br>
+<%= link_to 'Cadastrar novo Restaurante', new_restaurante_path %>
+
+<br>
+<table>
+  <tr>
+    <th>delete</th>
+    <th>edit</th>
+    <th>Restaurantes</th>
+  </tr>
+  <% @restaurantes.each do |restaurante| %>
+    <tr>
+      <td><%= link_to 'Excluir', restaurante_path(restaurante.id), method: :delete %></td>
+      <td><%= link_to 'Editar', edit_restaurante_path(restaurante.id) %></td>
+      <td><%= restaurante.name %></td>
+    </tr>
+  <% end %>
+</table>
