@@ -11,6 +11,11 @@ class DishesController < ApplicationController
     end
   end
 
+  def edit
+    @dish = Dish.find_by(id: params[:id])
+    @restaurantes = Restaurante.all
+  end
+
   def index
     @dishes = Dish.all.last(10)
   end
@@ -18,6 +23,18 @@ class DishesController < ApplicationController
   def new
     @dish = Dish.new
     @restaurantes = Restaurante.all
+  end
+
+  def update
+    @dish = Dish.find_by(id: params[:id])
+    @restaurantes = Restaurante.all
+
+    if @dish.update_attributes(create_params)
+      flash[:success] = "Dish was successfully updated"
+      redirect_to dishes_path
+    else
+      render 'edit'
+    end
   end
 
   private

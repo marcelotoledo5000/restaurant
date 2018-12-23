@@ -35,7 +35,6 @@ class RestaurantesController < ApplicationController
       flash[:success] = 'Restaurant was successfully updated'.freeze
       redirect_to restaurantes_path
     else
-      flash[:error] = 'Something went wrong'.freeze
       render :edit
     end
   end
