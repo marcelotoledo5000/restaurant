@@ -11,6 +11,12 @@ class DishesController < ApplicationController
     end
   end
 
+  def destroy
+    Dish.find_by(id: params[:id]).destroy
+
+    redirect_to dishes_path
+  end
+
   def edit
     @dish = Dish.find_by(id: params[:id])
     @restaurantes = Restaurante.all
@@ -29,8 +35,8 @@ class DishesController < ApplicationController
     @dish = Dish.find_by(id: params[:id])
     @restaurantes = Restaurante.all
 
-    if @dish.update_attributes(create_params)
-      flash[:success] = "Dish was successfully updated"
+    if @dish.update(create_params)
+      flash[:success] = 'Dish was successfully updated'.freeze
       redirect_to dishes_path
     else
       render 'edit'
