@@ -28,6 +28,15 @@ class RestaurantesController < ApplicationController
     @restaurante = Restaurante.new
   end
 
+  def search
+    search = params[:q].downcase
+    @restaurantes = Restaurante.where('lower(name) LIKE ?', "%#{search}%")
+  end
+
+  def show
+    @restaurante = Restaurante.find_by(id: params[:id])
+  end
+
   def update
     @restaurante = Restaurante.find_by(id: params[:id])
 

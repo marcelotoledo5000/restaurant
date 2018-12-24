@@ -4,8 +4,8 @@ feature 'user can edit restaurant' do
   scenario 'accesses the page correctly' do
     restaurant = create(:restaurante)
 
-    # visit root_path
-    # click_on 'any_link'
+    visit root_path
+    click_on 'Restaurantes'
     visit edit_restaurante_path restaurant
 
     expect(page).to have_css('h1', text: 'Cadastro de Restaurante')
@@ -50,7 +50,7 @@ feature 'user can edit restaurant' do
     expect(current_path).to eq restaurantes_path
     expect(page).to_not have_selector :link, 'Cancelar', href: restaurantes_path
     expect(page).to_not have_selector :link, 'Salvar', href: restaurantes_path
-    expect(page).to have_css('p', text: 'Pesquisar')
+    expect(page).to have_selector :button, 'Pesquisar'
     expect(page).to have_link('Cadastrar novo Restaurante')
   end
 end
