@@ -2,18 +2,23 @@
 
 <%= render partial: 'shared/model_errors', locals: { model: @dish } %>
 
-<%= form_for @dish do |f| %>
-  <div class=''>
-    <%= f.label :restaurante_id, 'Restaurante' %>
-    <%= f.collection_select :restaurante_id, @restaurantes, :id, :name %>
-  </div>
-  <div>
-    <%= f.label :name, 'Prato' %>
-    <%= f.text_field :name %>
-  </div>
-  <div>
-    <%= f.label :price, 'Preço(R$)' %>
-    <%= f.text_field :price %>
-  </div>
-  <p><%= link_to 'Cancelar', dishes_path %><%= f.submit label_button %> </p>
-<% end %>
+<div class="container-fluid">
+  <%= form_for @dish do |f| %>
+    <div class="form-group">
+      <%= f.label :restaurante_id, 'Restaurante' %>
+      <%= f.collection_select :restaurante_id, @restaurantes, :id, :name %>
+    </div>
+    <div>
+      <%= f.label :name, 'Prato' %>
+      <%= f.text_field :name %>
+    </div>
+    <div>
+      <%= f.label :price, 'Preço(R$)' %>
+      <%= f.text_field :price %>
+    </div>
+    <p>
+      <%= link_to 'Cancelar', dishes_path, class: 'btn btn-danger' %>
+      <%= f.submit label_button, class: 'btn btn-success' %>
+    </p>
+  <% end %>
+</div>

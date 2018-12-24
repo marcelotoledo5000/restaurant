@@ -2,8 +2,8 @@ require 'rails_helper'
 
 feature 'creates restaurant' do
   scenario 'accesses the page correctly' do
-    # visit root_path
-    # click_on 'button_bla'
+    visit root_path
+    click_on 'Restaurantes'
     visit new_restaurante_path
 
     expect(current_path).to eq new_restaurante_path
@@ -31,8 +31,7 @@ feature 'creates restaurant' do
 
     expect(page).to_not have_selector :link, 'Cancelar', href: restaurantes_path
     expect(page).to_not have_selector :link, 'Salvar', href: restaurantes_path
-    expect(page).to have_css('p', text: 'Pesquisar')
-    # expect(page).to have_link('Pesquisar')
+    expect(page).to have_selector :button, 'Pesquisar'
     expect(page).to have_link('Cadastrar novo Restaurante')
   end
 
