@@ -5,3 +5,38 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+
+Restaurante.create([
+  {
+    name: Faker::LordOfTheRings.unique.location
+  },
+  {
+    name: Faker::LordOfTheRings.unique.location
+  },
+  {
+    name: Faker::LordOfTheRings.unique.location
+  },
+  {
+    name: Faker::LordOfTheRings.unique.location
+  }
+])
+
+restaurants = Restaurante.all
+Dish.create([
+  {
+    name: Faker::Food.unique.dish, price: 18.99, restaurante_id: restaurants.first.id
+  },
+  {
+    name: Faker::Food.unique.dish, price: 27.99, restaurante_id: restaurants.first.id
+  },
+  {
+    name: Faker::Food.unique.dish, price: 19.99, restaurante_id: restaurants.last.id
+  },
+  {
+    name: Faker::Food.unique.dish, price: 28.99, restaurante_id: restaurants.last.id
+  },
+  {
+    name: Faker::Food.unique.dish, price: 38.99, restaurante_id: restaurants.last.id
+  }
+])
