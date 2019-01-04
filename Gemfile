@@ -40,12 +40,13 @@ group :development, :test do
   gem 'pry-byebug', '~> 3.6'
   gem 'rspec-rails', '~> 3.8', '>= 3.8.1'
   gem 'rubocop'
-  gem 'rubycritic', require: false
+  gem 'rubycritic'
   gem 'shoulda-matchers', '4.0.0.rc1'
   gem 'simplecov'
 end
 
 group :development do
+  gem 'brakeman'
   gem 'listen', '>= 3.0.5', '< 3.2'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
