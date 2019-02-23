@@ -6,19 +6,18 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-
 Restaurante.create([
   {
-    name: Faker::LordOfTheRings.unique.location
+    name: Faker::Movies::LordOfTheRings.unique.location
   },
   {
-    name: Faker::LordOfTheRings.unique.location
+    name: Faker::Movies::LordOfTheRings.unique.location
   },
   {
-    name: Faker::LordOfTheRings.unique.location
+    name: Faker::Movies::LordOfTheRings.unique.location
   },
   {
-    name: Faker::LordOfTheRings.unique.location
+    name: Faker::Movies::LordOfTheRings.unique.location
   }
 ])
 
