@@ -6,7 +6,7 @@ feature 'user can access restaurants page' do
     # click_on 'any_button_or_link'
     visit restaurantes_path
 
-    expect(current_path).to eq restaurantes_path
+    expect(page).to have_current_path restaurantes_path, ignore_query: true
     expect(page).to have_css('h1', text: 'Restaurantes')
     expect(page).to have_content('Restaurante')
   end

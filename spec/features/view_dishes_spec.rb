@@ -6,7 +6,7 @@ feature 'user can access dishes page' do
     # click_on 'any_button_or_link'
     visit dishes_path
 
-    expect(current_path).to eq dishes_path
+    expect(page).to have_current_path dishes_path, ignore_query: true
     expect(page).to have_css('h1', text: 'Pratos')
     expect(page).to have_content('Cadastrar novo Prato')
     expect(page).to have_content('Restaurante')
