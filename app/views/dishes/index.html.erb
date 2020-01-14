@@ -14,11 +14,11 @@
   </tr>
   <% @dishes.each do |dish| %>
     <tr>
-      <th><%= link_to 'Excluir', dish_path(dish.id), method: :delete %></th>
-      <th><%= link_to 'Editar', edit_dish_path(dish.id) %></th>
-      <th><%= dish.restaurante.name %></th>
-      <th><%= dish.name %></th>
-      <th><%= dish.price %></th>
+      <td><%= link_to 'Excluir', dish_path(dish.id), method: :delete %></td>
+      <td><%= link_to 'Editar', edit_dish_path(dish.id) %></td>
+      <td><%= dish.restaurante.name %></td>
+      <td><%= dish.name %></td>
+      <td><%= dish.price %></td>
     </tr>
   <% end %>
 </table>
