@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class DishesController < ApplicationController
   def create
     @dish = Dish.new create_params
 
     if @dish.save
-      flash[:success] = 'Dish successfully created'.freeze
+      flash[:success] = 'Dish successfully created'
       redirect_to dishes_path
     else
       @restaurantes = Restaurante.all
@@ -36,7 +38,7 @@ class DishesController < ApplicationController
     @restaurantes = Restaurante.all
 
     if @dish.update(create_params)
-      flash[:success] = 'Dish was successfully updated'.freeze
+      flash[:success] = 'Dish was successfully updated'
       redirect_to dishes_path
     else
       render 'edit'
