@@ -217,7 +217,7 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    rubocop (0.65.0)
+    rubocop (0.79.0)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5, != 2.5.1.1)
@@ -226,9 +226,13 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (~> 1.4.0)
-    ruby-progressbar (1.10.0)
-    ruby_dep (1.5.0)
-    ruby_parser (3.12.0)
+    rubocop-performance (1.5.2)
+      rubocop (>= 0.71.0)
+    rubocop-rails (2.4.1)
+      rack (>= 1.1)
+      rubocop (>= 0.72.0)
+    rubocop-rspec (1.37.1)
+      rubocop (>= 0.68.1)
       sexp_processor (~> 4.9)
     rubycritic (3.5.2)
       flay (~> 2.8)
@@ -329,6 +333,9 @@ DEPENDENCIES
   rails (~> 5.2.2)
   rspec-rails (~> 3.8, >= 3.8.2)
   rubocop
+  rubocop-performance
+  rubocop-rails
+  rubocop-rspec
   rubycritic
   sass-rails (~> 5.0)
   shoulda-matchers (= 4.0.0.rc1)
