@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 feature 'Create dish' do
@@ -6,14 +8,14 @@ feature 'Create dish' do
     # click_on 'button_x'
     visit new_dish_path
 
-    expect(current_path).to eq new_dish_path
+    expect(page).to have_current_path new_dish_path, ignore_query: true
     expect(page).to have_css('h1', text: 'Cadastro de Prato')
     expect(page).to have_selector(:select, 'Restaurante')
     expect(page).to have_css('label', text: 'Prato')
     expect(page).to have_css('label', text: 'Preço(R$)')
     expect(page).to have_selector :link, 'Cancelar', href: dishes_path
     expect(page).to have_selector :button, 'Salvar'
-    expect(page).to_not have_link('Cadastrar novo Prato')
+    expect(page).not_to have_link('Cadastrar novo Prato')
   end
 
   scenario 'successfully' do
@@ -27,25 +29,25 @@ feature 'Create dish' do
     click_on 'Salvar'
 
     expect(page).to have_content(dish_name)
-    expect(current_path).to eq dishes_path
+    expect(page).to have_current_path dishes_path, ignore_query: true
   end
 
   scenario 'can cancel action' do
     visit new_dish_path
     click_on 'Cancelar'
 
-    expect(page).to_not have_selector :link, 'Cancelar', href: dishes_path
-    expect(page).to_not have_selector :button, 'Salvar'
-    expect(page).to_not have_css('h1', text: 'Cadastro de Prato')
+    expect(page).not_to have_selector :link, 'Cancelar', href: dishes_path
+    expect(page).not_to have_selector :button, 'Salvar'
+    expect(page).not_to have_css('h1', text: 'Cadastro de Prato')
     expect(page).to have_css('h1', text: 'Pratos')
     expect(page).to have_link('Cadastrar novo Prato')
-    expect(current_path).to eq dishes_path
+    expect(page).to have_current_path dishes_path, ignore_query: true
   end
 
   scenario 'cant be blank' do
     visit new_dish_path
-    fill_in 'Prato',	with: ''
-    fill_in 'Preço(R$)',	with: '21.90'
+    fill_in 'Prato', with: ''
+    fill_in 'Preço(R$)', with: '21.90'
     click_on 'Salvar'
 
     expect(page).to have_css('h1', text: 'Cadastro de Prato')

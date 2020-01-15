@@ -1,9 +1,11 @@
+# frozen_string_literal: true
+
 class RestaurantesController < ApplicationController
   def create
     @restaurante = Restaurante.new create_params
 
     if @restaurante.save
-      flash[:success] = 'Restaurant successfully created'.freeze
+      flash[:success] = 'Restaurant successfully created'
       redirect_to restaurantes_path
     else
       render :new
@@ -41,7 +43,7 @@ class RestaurantesController < ApplicationController
     @restaurante = Restaurante.find_by(id: params[:id])
 
     if @restaurante.update(create_params)
-      flash[:success] = 'Restaurant was successfully updated'.freeze
+      flash[:success] = 'Restaurant was successfully updated'
       redirect_to restaurantes_path
     else
       render :edit
